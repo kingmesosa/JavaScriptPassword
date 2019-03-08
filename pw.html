@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank of Ricks Security</title>
+</head>
+<body>
+<heading>
+    <h1>Bank of Ricks Security</h1>
+    <p id="heading"></p>
+</heading>
+<h3> Welcome To Bank of Ricks. You Have Completed Registration and Must Now Create Password </br> Don't Be A Morty!</h3>
+<form name="passForm" method="post" onsubmit="return value (this)">
+<p>In the section below, you are asked to create a username and a password in order to 'login'. Your password <b>MUST</b> include atleast 8 characters, an upper and lower case letter and a number and a symbol. If your password doesn't include any of these requirements, it will not be accepted.</p>
+Your Password: <input type="password" name="passInput" placeholder="Password" /> 
+</br>
+Confirm Password: <input type="password" name="confirmPassInput" placeholder="Re-Enter Password"/>
+<input type="submit" value="Submit" id="submit" onclick="return value (passForm);"/></form>
+</body>
+</html>
+<script>
+window.onload = function() {
+var subButton = document.getElementById("submit");
+subButton.onclick = function value(passForm) {}};
+
+function value(passForm) {
+    //check for lower case
+    if (!passForm.passInput.value.match(/[a-z]/)) {
+        alert("Password must contain at least one lower case letter.");
+        passForm.passInput.focus();
+        return false;
+    }
+    
+    //Validation of length
+    if ((passForm.passInput.value).length < 8) {
+        alert("Your password has less than 8 characters.");
+        passForm.passInput.focus();
+        return false;
+    }
+    
+    //Validating if pw matches
+    if (passForm.confirmPassInput.value != passForm.passInput.value) {
+        alert("Your confirmation password does not match.");
+        passForm.passInput.focus();
+        return false;
+    }
+
+    //Validating confirmation input
+    if (passForm.confirmPassInput.value == "") {
+        alert("Please confirm your password.");
+        passForm.passInput.focus();
+        return false;
+    }
+
+    //check for upper case
+    if (!passForm.passInput.value.match(/[A-Z]/)) {
+        alert("Password must contain at least one upper case letter.");
+        passForm.passInput.focus();
+        return false;
+    }
+    
+    //check for number
+    if (!passForm.passInput.value.match(/\d+/g)) {
+        alert("Password must contain at least one number.");
+        passForm.passInput.focus();
+        return false;
+    }
+    
+    //confirm passwords match and have been created
+    if ((passForm.passInput.value) == (passForm.confirmPassInput.value)) {
+    alert("Your password has been created!");
+    return true;}};
+</script>
